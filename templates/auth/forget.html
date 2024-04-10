@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Forget Password</title>
+{% endblock %}
+
+{% block style %}
+<style>
+    /* Custom CSS styles */
+    body {
+        background-image: url('https://e0.pxfuel.com/wallpapers/993/201/desktop-wallpaper-seven-reasons-you-should-fall-in-love-with-plain-color-background-plain-color-background-light-plain.jpg'); /* Replace 'your-background-image-url.jpg' with the URL of your background image */
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Make the body full height */
+    }
+
+    .forget-container {
+        max-width: 600px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="forget-container">
+    <h2>Forget Password</h2>
+    <form action="{{ url_for('auth.forget') }}" method="POST">
+        <div class="form-group">
+            <label for="email">Enter your Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Reset Password</button>
+    </form>
+    <p>Remembered your password? <a href="{{ url_for('auth.login') }}">Login</a></p>
+    <p>Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign up</a></p>
+</div>
+{% endblock %}

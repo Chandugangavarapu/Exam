@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Department Incharge Dashboard</title>
+{% endblock %}
+
+{% block style %}
+<style>
+    /* Custom CSS styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://images.thequint.com/thequint/2022-07/4d24e594-b17d-4376-9515-f949e987e88e/iStock_1146488500.jpg?auto=format,compress&fmt=webp&format=webp&w=1200&h=900&dpr=1.0');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .navbar {
+        background-color: #000; /* Set background color to black */
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between; /* Space between elements */
+        align-items: center;
+    }
+
+    .navbar-brand {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .logout-btn {
+        background-color: #dc3545;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .logout-btn:hover {
+        background-color: #c82333;
+    }
+
+    .sidebar {
+        width: 250px;
+        position: fixed;
+        top: 9.5%;
+        left: 0;
+        height: 100%;
+        background-color: hwb(310 0% 0%);
+        padding-top: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    a {
+        display: block;
+        padding: 10px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+        background-color: #0056b3;
+    }
+
+    .content {
+        margin-left: 250px; /* Same as sidebar width */
+    }
+</style>
+
+{% endblock %}
+
+{% block header %}
+
+<div class="navbar">
+    <span class="navbar-brand">Department Incharge Dashboard</span>
+    <a href="{{ url_for('incharge.logout') }}" class="logout-btn">Logout</a>
+</div>
+
+{%  endblock %}
+
+{% block content %}
+
+<div class="sidebar">
+    <ul>
+        <li><a href="{{ url_for('incharge.view_schedule') }}">View Invigilation Schedule</a></li>
+        <li><a href="{{ url_for('incharge.update_faculty_availability') }}">Update Faculty Availability</a></li>
+        <li><a href="{{ url_for('incharge.adjustment_requests') }}">View Adjustment Requests</a></li>
+        <li><a href="{{ url_for('incharge.record_absentee') }}">Record Absentees</a></li>
+        <li><a href="{{ url_for('incharge.department_reports') }}">View Department Reports</a></li>
+        <li><a href="{{ url_for('incharge.message_faculty') }}">Message Faculty</a></li>
+        <li><a href="{{ url_for('incharge.manage_rooms') }}">Manage Rooms</a></li>
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>OTP Verification</title>
+{% endblock %}
+
+<style>
+  /* Custom CSS styles */
+  body {
+    background-image: url('https://partheniumprojects.com/wp-content/uploads/2019/01/Examination-System.png');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif; /* Use a common font for better readability */
+  }
+
+  .otp-container {
+    max-width: 400px;
+    margin: 100px auto; /* Center the OTP container vertically and horizontally */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+    position: relative; /* Position relative to align the form */
+  }
+
+  .otp-container .form-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 40px); /* Adjust width for padding */
+  }
+
+  .otp-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    width: 100%; /* Make the verify OTP button full-width */
+    border-radius: 20px; /* Add some roundness to buttons */
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .btn {
+    border-radius: 20px; /* Add some roundness to buttons */
+  }
+
+</style>
+
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="otp-container">
+        <h2>OTP Verification</h2>
+        <form action="{{ url_for('auth.otp', token=token) }}" method="POST">
+          <div class="form-group">
+            <label for="otp">Enter OTP:</label>
+            <input type="text" class="form-control" id="otp" name="otp" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Verify OTP</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

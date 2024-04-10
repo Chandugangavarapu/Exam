@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Login</title>
+{% endblock %}
+{% block style %}
+<style>
+  /* Custom CSS styles */
+  body {
+    background-image: url('https://e0.pxfuel.com/wallpapers/215/204/desktop-wallpaper-plain-light-color-background.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif; /* Use a common font for better readability */
+  }
+
+  .login-container {
+    max-width: 400px;
+    margin: 100px auto; /* Center the login container vertically and horizontally */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Remove background-color property to remove background color */
+  }
+
+  .login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    width: 100%; /* Make the login button full-width */
+  }
+
+  .btn-secondary {
+    width: 100%;
+    background-color: #6c757d; /* Darker button color for secondary actions */
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .btn {
+    border-radius: 20px; /* Add some roundness to buttons */
+  }
+
+  .btn-link {
+    text-decoration: none;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="login-container">
+        <h2>Login</h2>
+        <form action="{{ url_for('auth.login') }}" method="POST">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <div class="links">
+          <a href="{{ url_for('auth.signup') }}">Don't have an account? Sign up</a>
+          <p><a href="{{ url_for('auth.forget') }}">Forgot your password?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
